@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <myCalendar/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import myCalendar from '@/components/myCalendar'
 export default {
-  name: 'App'
+  name: 'App',
+  components : {myCalendar}
 }
 </script>
 
