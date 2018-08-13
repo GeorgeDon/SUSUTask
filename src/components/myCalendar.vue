@@ -14,7 +14,7 @@
 <script>
 import Calendar from "vue-calendar-component";
 // import alert from "@/components/alert";
-import dialogBar from "@/components/myDialog.vue";
+import dialogBar from "./basic/myDialog.vue";
 
 export default {
   name: "myCalendar",

@@ -8,7 +8,7 @@
 
 <script>
 
-import dialogBar from "@/components/myDialog.vue";
+import dialogBar from "./basic/myDialog.vue";
 
 export default {
   name: "card",
@@ -54,13 +54,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
     .card{
-        width: 30%;
+        width: 100%;
         height: 50px;
         background-color: aqua;
         border-color:black;
         border-style:solid;
-        text-align: center;
-        float: left;
+        text-align: center;   
         border-width:1px;
+        margin-top: 10px;
     }
 </style>

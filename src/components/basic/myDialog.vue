@@ -22,6 +22,7 @@
 </template>
 <script>
 export default {
+    name: "myDialog",
     props: {
         value: {},
         // 类型包括 defalut 默认， danger 危险， confirm 确认，

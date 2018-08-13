@@ -7,8 +7,7 @@
       <div class="left_menu">
         <leftMenu/>
       </div>
-      <div class="project">
-        <card :inShortText="clickme"></card>
+      <div class="project">  
         <router-view/>
       </div>
       <div class="support">
@@ -24,16 +23,10 @@
 
 <script>
 import myCalendar from "@/components/myCalendar";
-import card from "@/components/card";
 import leftMenu from "@/components/leftMenu";
 export default {
   name: "App",
-  components: { myCalendar, leftMenu, card },
-  data() {
-    return {
-      clickme: "点击我"
-    };
-  }
+  components: { myCalendar, leftMenu }
 };
 </script>
 
