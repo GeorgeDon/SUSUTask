@@ -6,6 +6,7 @@
     <div id="app" class="home">
       <div class="left_menu"></div>
       <div class="project">
+        <card :inShortText="clickme"></card>
         <router-view/>
       </div>
       <div class="support">
@@ -21,9 +22,18 @@
 
 <script>
 import myCalendar from "@/components/myCalendar";
+import card from "@/components/card";
 export default {
   name: "App",
-  components: { myCalendar }
+  components: { 
+    myCalendar,
+    card 
+    },
+  data() {
+    return {
+      clickme:"点击我"
+    };
+  }
 };
 </script>
 
