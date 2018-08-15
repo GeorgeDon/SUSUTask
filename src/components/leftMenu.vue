@@ -1,11 +1,11 @@
 <template>
     <div class="left-box">
         <div class="split-left-box">
-            <div class="left-card">
+            <div class="left-card" @click="goHome">
                 任务栏
             </div>
-            <div class="left-card"> 
-                待定   
+            <div class="left-card" @click="goMessage">
+                待定
             </div>
         </div>
         <div class="split-right-box">
@@ -18,7 +18,22 @@
 
 <script>
 export default {
-  name: "leftMenu"
+  name: "leftMenu",
+  methods: {
+    goMessage() {
+      this.$router.push({
+        path: "/message",
+        params: {
+          text: "haha"
+        }
+      });
+    },
+    goHome() {
+      this.$router.push({
+        path: "/"
+      });
+    }
+  }
 };
 </script>
 
@@ -35,6 +50,12 @@ export default {
   font-family: KaiTi;
   width: 100%;
   box-shadow: 4px 4px #f0f0f0;
+}
+.left-card:hover {
+  background-color: antiquewhite;
+}
+.left-card:active {
+  background-color: #d1eeee;
 }
 .left-box {
   width: 100%;
