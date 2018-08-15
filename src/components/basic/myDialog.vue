@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="close-btn" @click="closeMask"><i class="iconfont icon-close">
-                <img src="../../image/del.jpg"/>
+                <img src="../../assets/image/del.jpg"/>
             </i></div>
         </div>
         

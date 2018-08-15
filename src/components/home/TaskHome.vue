@@ -31,8 +31,8 @@
 </template>
 
 <script>
-import dialogBar from "./basic/myDialog.vue";
-import card from "@/components/card";
+import myDialog from "../basic/myDialog.vue";
+import card from "./card";
 export default {
   name: "TaskHome",
   components: { card },

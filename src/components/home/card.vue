@@ -8,7 +8,7 @@
 
 <script>
 
-import dialogBar from "./basic/myDialog.vue";
+import dialogBar from "../basic/myDialog.vue";
 
 export default {
   name: "card",

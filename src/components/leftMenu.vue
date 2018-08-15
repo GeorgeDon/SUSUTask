@@ -22,10 +22,7 @@ export default {
   methods: {
     goMessage() {
       this.$router.push({
-        path: "/message",
-        params: {
-          text: "haha"
-        }
+        path: "/message"
       });
     },
     goHome() {
