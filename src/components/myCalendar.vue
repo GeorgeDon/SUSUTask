@@ -7,7 +7,7 @@
     ></Calendar>
     
     <!-- <alert :inshowstate="show" :intitle="alertTitle" :inmsg="alertMsg"></alert> -->
-    <dialog-bar v-model="sendVal" type="danger" :title="alertTitle" :content="alertMsg" v-on:cancel="clickCancel()" @danger="clickDanger()" @confirm="clickConfirm()" dangerText="Delete"></dialog-bar>
+    <dialog-bar v-model="sendVal"  v-on:cancel="clickCancel()" @close="clickClose()" @confirm="clickConfirm()" ></dialog-bar>
   </div>
 </template>
 
@@ -51,8 +51,8 @@ export default {
     clickCancel() {
       console.log("点击了取消");
     },
-    clickDanger() {
-      console.log("这里是danger回调");
+    clickClose() {
+      console.log("这里是关闭");
     },
     clickConfirm() {
       console.log("点击了confirm");
