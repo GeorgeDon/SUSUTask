@@ -1,7 +1,10 @@
 <template>
     <div class="task-home">
         <div class="create">
-           <button class="create-btn">创建项目</button>
+            <button class="create-btn" @click="openCreatedDialog">创建项目</button>
+            <createDialog v-model="show">
+            </createDialog>
+
         </div>
         <div class="list">
             <span class="title">待办项目</span>
@@ -31,24 +34,30 @@
 </template>
 
 <script>
-import myDialog from "../basic/myDialog.vue";
+import createDialog from "./createDialog.vue";
 import card from "./card";
 export default {
   name: "TaskHome",
-  components: { card },
+  components: { card, createDialog },
   data() {
     return {
-      clickme: "点击我"
+      clickme: "点击我",
+      show: false
     };
+  },
+  methods: {
+      openCreatedDialog(){
+          this.show=true;          
+      }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.create{
-    margin-left: 10%;
-    margin-top: 20px;
+.create {
+  margin-left: 10%;
+  margin-top: 20px;
 }
 .create-btn {
   background: #b59d5a;
@@ -73,8 +82,11 @@ export default {
 }
 
 .create-btn:hover {
-  color: #ffffff;
   background: #72b352;
+  text-decoration: none;
+}
+.create-btn:active {
+  background: #35a077;
   text-decoration: none;
 }
 .task-home {

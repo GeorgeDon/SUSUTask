@@ -1,7 +1,5 @@
 <template>
-  <div class="card">
-    <a @click="clickCard">{{shortText}}</a>
-
+  <div class="card"> 
     <dialog-bar v-model="sendVal"  v-on:cancel="clickCancel()" @close="clickClose()" @confirm="clickConfirm()"></dialog-bar>
   </div>
 </template>
