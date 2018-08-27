@@ -1,33 +1,42 @@
 // 从github拷贝而来https://github.com/wwjhzc/vue-dialog/blob/master/dialog/dialog.vue
 <template>
-    <div class="dialog" v-show="showMask">
-        <div class="dialog-container">
-            <div>
-              任务名: <input type="text" placeholder="请输入任务名" v-model="taskName">
-            </div>
+  <div class="dialog" v-show="showMask">
+    <div class="dialog-container">
+      <div class="dialog-title">
+        任务名: <input type="text" placeholder="请输入任务名" class="title-input" v-model="taskName">
+      </div>
 
-            <div class="content"></div>
-            <div class="btns">
-                <div class="default-btn" @click="cancelBtn">
-                    {{cancelText}}
-                </div>
-
-                <div class="confirm-btn" @click="confirmBtn">
-                    {{confirmText}}
-                </div>
-            </div>
-            <div class="close-btn" @click="cancelBtn">
-                <i class="iconfont icon-close">
-                    <img src="../../assets/image/del.jpg" />
-                </i>
-            </div>
+      <div class="content">
+        <div class="quill-editor-example">
+          <quillEditor class='quill-editor' v-model="content"></quillEditor>
+        </div>
+      </div>
+      <div class="btns">
+        <div class="default-btn" @click="cancelBtn">
+          {{cancelText}}
         </div>
 
+        <div class="confirm-btn" @click="confirmBtn">
+          {{confirmText}}
+        </div>
+      </div>
+      <div class="close-btn" @click="cancelBtn">
+        <i class="iconfont icon-close">
+          <img src="../../assets/image/del.jpg" />
+        </i>
+      </div>
     </div>
+
+  </div>
 </template>
 <script>
+import "quill/dist/quill.core.css";
+import "quill/dist/quill.snow.css";
+import "quill/dist/quill.bubble.css";
+import { quillEditor } from "vue-quill-editor";
 export default {
   name: "createDialog",
+  components: { quillEditor },
   props: {
     value: {},
     cancelText: {
@@ -42,7 +51,9 @@ export default {
   data() {
     return {
       showMask: false,
-      taskName: ""
+      taskName: "",
+      content: ""    
+   
     };
   },
   methods: {
@@ -50,27 +61,27 @@ export default {
       this.showMask = false;
     },
     cancelBtn() {
-    //   this.$emit("cancel"); //子组件可以使用 $emit 触发父组件的自定义事件
-    //   this.closeMask();
-       console.log(this.taskName)
-       console.log(this.showMask)
+      this.$emit("cancel"); //子组件可以使用 $emit 触发父组件的自定义事件
+      this.closeMask();
+      this.content="";
+      console.log(this.taskName);
+      console.log(this.showMask);
     },
     confirmBtn() {
       this.$emit("confirm");
-      this.closeMask();
+      // this.closeMask();  
+      console.log(this.content)
     }
   },
   mounted() {
     this.showMask = this.value;
   },
-   watch: {
+  watch: {
     value(newVal, oldVal) {
       this.showMask = newVal;
-      console.log(1)
     },
     showMask(val) {
       this.$emit("input", val);
-       console.log(2)
     }
   }
 };
@@ -85,29 +96,30 @@ export default {
   background: rgba(0, 0, 0, 0.6);
   z-index: 9999;
   .dialog-container {
-    width: 500px;
-    height: 380px;
+    width: 50%;
+    height: 70%;
     background: #ffffff;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 8px;
-    position: relative;
     .dialog-title {
-      width: 100%;
-      height: 60px;
-      font-size: 18px;
-      color: #696969;
-      font-weight: 600;
       padding: 16px 50px 0 20px;
-      box-sizing: border-box;
+      height: 30px;
+      .title-input {
+        width: 80%;
+        border: black solid 1px;
+        font-size: 20px;
+      }
+      font-size: 20px;
     }
     .content {
-      color: #797979;
-      line-height: 26px;
       padding: 0 20px;
-      box-sizing: border-box;
+      margin-top: 10px;
+      height: 60%;
+      color: black;
+      font-size: 15px;
     }
     .inp {
       margin: 10px 0 0 20px;
